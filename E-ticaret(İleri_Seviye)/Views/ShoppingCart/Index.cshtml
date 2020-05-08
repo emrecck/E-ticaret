@@ -24,8 +24,16 @@
                     <tr>
                         <td><img src=@item.Course.CourseImage alt=@item.Course.CourseName width="100"/></td>
                         <td>@item.Course.CourseName</td>
-                        <td>@item.Course.Price.ToString() TL</td>
-                        <td> <span class="glyphicon glyphicon-trash"></span></td>
+                        <td class="d-lg-flex border-0 justify-content-between">
+                            @item.Course.Price.ToString() TL
+                            @using( Html.BeginForm("RemoveFromCart" , "ShoppingCart" , FormMethod.Get) )
+                            {
+                                @Html.Hidden("Id" , item.Course.Id)
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            }
+                        </td>
                     </tr>
                 }
 
