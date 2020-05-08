@@ -1,0 +1,31 @@
+﻿@model IEnumerable<E_ticaret_İleri_Seviye_.Models.Course>
+@{
+
+    ViewBag.Title = "Index";
+}
+<div class="jumbotron text-light">
+    <div class="container">
+        <div class="container">
+            <h1 class="display-3">Jumbo heading</h1>
+            <p class="lead">Jumbo helper text</p>
+            <hr class="my-2">
+            <p>More info</p>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="list-container pb-5">
+    <div class="row">
+        <div class="col-md-3">
+            @Html.Action("Categories" , "Home")
+
+            <a class="text-danger bg-dark" href="/ShoppingCart/Index">Go-to-Cart</a>
+        </div>
+        <div class="col-md-9 card-group">
+            @Html.Partial("CourseList" , Model)
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<E_ticaret_İleri_Seviye_.Models.Course>
+
+<div class="card-group">
+
+
+    @foreach( var item in Model )
+    {
+        <div class="col-sm-3 pb-3">
+            <div class="card">
+                <a class="text-decoration-none" href="/Home/Details/@item.Id">
+                    <img src="@item.CourseImage" class="card-img-top" alt="@item.CourseName">
+                </a>
+                <div class="card-body">
+                    <div class="description">
+                        <a class="text-decoration-none text-dark" href="/Home/Details/@item.Id"><h5 class="card-title">@item.CourseName</h5></a>
+                        <a class="text-decoration-none text-dark" href="/Home/Details/@item.Id">
+                            <p class="card-text lead ">
+                                @item.WhatWillYouLearn
+                            </p>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    @Html.ActionLink("Go to Course" , "Details" , "Home" , new { id = item.Id } , new { @class = "btn btn-primary btn-md" })
+                </div>
+            </div>
+        </div>
+    }
+</div>

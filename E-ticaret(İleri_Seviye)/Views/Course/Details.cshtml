@@ -1,0 +1,106 @@
+﻿@model E_ticaret_İleri_Seviye_.Models.Course
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Course</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WhatWillYouLearn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WhatWillYouLearn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonAdded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonAdded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseReyting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseReyting)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseLanguage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseLanguage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseLectures)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseLectures)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseLenght)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseLenght)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
