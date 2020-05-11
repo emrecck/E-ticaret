@@ -300,6 +300,7 @@
     <Compile Include="Models\DataInitializer.cs" />
     <Compile Include="Models\Instructor.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Register.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -326,6 +327,7 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\Checkout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

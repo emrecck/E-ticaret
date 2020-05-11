@@ -67,7 +67,7 @@ namespace E_ticaret_İleri_Seviye_.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(Login login,string ReturnUrl)
+        public ActionResult Login(Login login , string ReturnUrl)
         {
             if( ModelState.IsValid )
             {
@@ -80,14 +80,16 @@ namespace E_ticaret_İleri_Seviye_.Controllers
                     var authProp = new AuthenticationProperties();
                     authProp.IsPersistent = login.RememberMe;
 
-                    authManager.SignIn(authProp,identityClaims);
-                    return RedirectToAction("Index" , "Home");
+                    authManager.SignIn(authProp , identityClaims);
+
+                    if( !String.IsNullOrEmpty(ReturnUrl) )
+                    {
+                        return Redirect(ReturnUrl);
+                    }
+                    else
+                        return RedirectToAction("Index" , "Home");
                 }
 
-                if(! String.IsNullOrEmpty(ReturnUrl) )
-                {
-                    return Redirect(ReturnUrl);
-                }
             }
             else
             {
@@ -100,7 +102,7 @@ namespace E_ticaret_İleri_Seviye_.Controllers
             var authManager = HttpContext.GetOwinContext().Authentication;
             authManager.SignOut();
 
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index" , "Home");
         }
     }
 }

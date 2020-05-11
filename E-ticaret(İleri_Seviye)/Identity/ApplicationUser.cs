@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using E_ticaret_İleri_Seviye_.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace E_ticaret_İleri_Seviye_.Identity
     {
         public string Name { get; set; }
         public string Surname { get; set; }
+        public List<Order> Orders { get; set; }
 
     }
 }

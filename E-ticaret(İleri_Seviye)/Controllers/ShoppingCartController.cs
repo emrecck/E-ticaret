@@ -40,5 +40,10 @@ namespace E_ticaret_İleri_Seviye_.Controllers
             GetCart().DeleteFromCartLine(db.Courses.FirstOrDefault(i => i.Id == id));
             return RedirectToAction("Index");
         }
+        [Authorize]
+        public ActionResult Checkout() 
+        {
+            return View();
+        }
     }
 }

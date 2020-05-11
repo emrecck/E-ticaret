@@ -22,7 +22,7 @@
                 @foreach( var item in Model.CartLines )
                 {
                     <tr>
-                        <td><img src=@item.Course.CourseImage alt=@item.Course.CourseName width="100"/></td>
+                        <td><img src=@item.Course.CourseImage alt=@item.Course.CourseName width="100" /></td>
                         <td>@item.Course.CourseName</td>
                         <td class="d-lg-flex border-0 justify-content-between">
                             @item.Course.Price.ToString() TL
@@ -51,8 +51,13 @@
                     }
                 </tr>
             </tfoot>
-     
+
         </table>
+
+        <div class="text-center">
+            <a class="btn btn-outline-dark" href="/Home">Back To Shop</a>
+            <a class="btn btn-dark" href="/ShoppingCart/Checkout">Buy</a>
+        </div>
     </div>
 </div>
 
