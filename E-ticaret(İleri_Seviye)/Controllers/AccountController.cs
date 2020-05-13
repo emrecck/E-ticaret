@@ -43,7 +43,7 @@ namespace E_ticaret_İleri_Seviye_.Controllers
                 applicationUser.UserName = register.Username;
 
                 var result = UserManager.Create(applicationUser , register.Password);
-
+                
                 if( result.Succeeded )
                 {
                     if( RoleManager.RoleExists("User") )
@@ -67,7 +67,7 @@ namespace E_ticaret_İleri_Seviye_.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(Login login , string ReturnUrl)
+        public ActionResult Login(Login login , string returnUrl)
         {
             if( ModelState.IsValid )
             {
@@ -82,9 +82,9 @@ namespace E_ticaret_İleri_Seviye_.Controllers
 
                     authManager.SignIn(authProp , identityClaims);
 
-                    if( !String.IsNullOrEmpty(ReturnUrl) )
+                    if( !String.IsNullOrEmpty(returnUrl) )
                     {
-                        return Redirect(ReturnUrl);
+                        return Redirect(returnUrl);
                     }
                     else
                         return RedirectToAction("Index" , "Home");

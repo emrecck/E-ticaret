@@ -1,9 +1,14 @@
-﻿using E_ticaret_İleri_Seviye_.Models;
+﻿using E_ticaret_İleri_Seviye_.Identity;
+using E_ticaret_İleri_Seviye_.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace E_ticaret_İleri_Seviye_.Controllers
 {
@@ -24,7 +29,7 @@ namespace E_ticaret_İleri_Seviye_.Controllers
             }
             return RedirectToAction("Index");
         }
-        public Cart GetCart() 
+        public Cart GetCart()
         {
             var cart = (Cart)Session["Cart"];
             if( cart == null )
@@ -35,15 +40,38 @@ namespace E_ticaret_İleri_Seviye_.Controllers
 
             return cart;
         }
-        public ActionResult RemoveFromCart(int id) 
+        public ActionResult RemoveFromCart(int id)
         {
             GetCart().DeleteFromCartLine(db.Courses.FirstOrDefault(i => i.Id == id));
             return RedirectToAction("Index");
         }
         [Authorize]
-        public ActionResult Checkout() 
+        public ActionResult Checkout()
         {
+            var cart = GetCart();
+            SaveOrder(cart);
+
             return View();
         }
+
+        private void SaveOrder(Cart cart)
+        {
+            var order = new Order();
+            order.Date = DateTime.Now;
+            order.OrderLines = new List<OrderLine>();
+
+            foreach( var item in cart.CartLines )
+            {
+                var orderLine = new OrderLine();
+                orderLine.CourseName = item.Course.CourseName;
+                orderLine.Price = item.Course.Price;
+                orderLine.CourseId = item.Course.Id;
+
+                order.OrderLines.Add(orderLine);
+            }
+            db.Orders.Add(order);
+            db.SaveChanges();
+        }
+
     }
 }

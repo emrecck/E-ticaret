@@ -10,16 +10,22 @@ namespace E_ticaret_İleri_Seviye_.Models
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public ApplicationUser User { get; set; }
-        public List<OrderLine> OrderLines { get; set; }
+
+        public virtual List<OrderLine> OrderLines { get; set; }
 
 
     }
     public class OrderLine 
     {
+        public int Id { get; set; }
         public string CourseName { get; set; }
         public string Price { get; set; }
+
         public int OrderId { get; set; }
+        public virtual Order Order { get; set; }
+
+        public int CourseId { get; set; }
+        public virtual Course Course { get; set; }
 
     }
 }

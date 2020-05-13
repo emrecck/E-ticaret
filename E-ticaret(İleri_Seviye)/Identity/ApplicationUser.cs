@@ -11,7 +11,6 @@ namespace E_ticaret_İleri_Seviye_.Identity
     {
         public string Name { get; set; }
         public string Surname { get; set; }
-        public List<Order> Orders { get; set; }
 
     }
 }

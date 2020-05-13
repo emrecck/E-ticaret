@@ -16,5 +16,7 @@ namespace E_ticaret_İleri_Seviye_.Models
         public DbSet<Course> Courses { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Instructor> Instructors { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderLine> OrderLines { get; set; }
     }
 }
