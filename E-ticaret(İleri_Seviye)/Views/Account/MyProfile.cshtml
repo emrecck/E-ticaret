@@ -1,0 +1,35 @@
+﻿@model IEnumerable<E_ticaret_İleri_Seviye_.Models.Order>
+@{
+    ViewBag.Title = "MyProfile";
+}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>@User.Identity.Name - My Courses</h2>
+                <hr />
+                @foreach( var item in Model )
+                {
+                    foreach( var line in item.OrderLines )
+                    {
+                        <div class="media">
+                            <img src="@line.Course.CourseImage" alt="Alternate Text" />
+                            <div class="media-body">
+                                <h4>@line.CourseName</h4>
+                                <p>@line.Course.WhatWillYouLearn</p>
+                            </div>
+                            <div class="media media-footer">
+                                @item.Date
+                            </div>
+                        </div>
+                    }
+
+                }
+
+            </div>
+        </div>
+    </div>
+
+
+
+

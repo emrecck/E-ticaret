@@ -10,9 +10,9 @@ namespace E_ticaret_İleri_Seviye_.Models
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
+        public string UserName { get; set; }
 
         public virtual List<OrderLine> OrderLines { get; set; }
-
 
     }
     public class OrderLine 

@@ -13,6 +13,7 @@ namespace E_ticaret_İleri_Seviye_.Controllers
 {
     public class AccountController : Controller
     {
+        private DataContext db = new DataContext();
         private UserManager<ApplicationUser> UserManager;
         private RoleManager<ApplicationRole> RoleManager;
 
@@ -24,7 +25,16 @@ namespace E_ticaret_İleri_Seviye_.Controllers
             UserManager = new UserManager<ApplicationUser>(userstore);
             RoleManager = new RoleManager<ApplicationRole>(rolestore);
         }
+        [Authorize]
+        public ActionResult MyProfile()
+        {
+            if( db.Orders.Count() != 0 )
+            {
 
+            }
+            List<Order> orders = db.Orders.Where(j => j.UserName == User.Identity.Name).ToList();
+            return View(orders);
+        }
         public ActionResult Register()
         {
             return View();
@@ -43,7 +53,7 @@ namespace E_ticaret_İleri_Seviye_.Controllers
                 applicationUser.UserName = register.Username;
 
                 var result = UserManager.Create(applicationUser , register.Password);
-                
+
                 if( result.Succeeded )
                 {
                     if( RoleManager.RoleExists("User") )

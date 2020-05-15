@@ -57,9 +57,10 @@ namespace E_ticaret_İleri_Seviye_.Controllers
         private void SaveOrder(Cart cart)
         {
             var order = new Order();
+
             order.Date = DateTime.Now;
             order.OrderLines = new List<OrderLine>();
-
+            order.UserName = User.Identity.GetUserName();
             foreach( var item in cart.CartLines )
             {
                 var orderLine = new OrderLine();
@@ -69,6 +70,7 @@ namespace E_ticaret_İleri_Seviye_.Controllers
 
                 order.OrderLines.Add(orderLine);
             }
+
             db.Orders.Add(order);
             db.SaveChanges();
         }
